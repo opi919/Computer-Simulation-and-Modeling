@@ -1,3 +1,4 @@
+```
 def cpm(nodes, activities):
     forward = [0] * nodes
     backward = [float('inf')] * nodes
@@ -34,3 +35,4 @@ def cpm(nodes, activities):
 nodes = 7
 activities = [(1, 2, 11), (1, 3, 3), (1, 4, 10), (4, 5, 3), (3, 5, 1), (2, 6, 2), (5, 6, 1), (6, 7, 1)]
 critical_path = cpm(nodes, activities)
+```
