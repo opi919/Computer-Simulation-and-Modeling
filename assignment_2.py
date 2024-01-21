@@ -1,4 +1,4 @@
-```
+```python
 def cpm(nodes, activities):
     forward = [0] * nodes
     backward = [float('inf')] * nodes
