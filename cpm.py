@@ -1,13 +1,15 @@
 def cpm(nodes, activities):
     forward = [0] * nodes
-    backward = [float('inf')] * nodes
+    backward = [float("inf")] * nodes
     slack = [0] * nodes
 
     # Forward pass
     for i in range(1, nodes + 1):
         for activity in activities:
             if activity[1] == i:
-                forward[i - 1] = max(forward[i - 1], forward[activity[0] - 1] + activity[2])
+                forward[i - 1] = max(
+                    forward[i - 1], forward[activity[0] - 1] + activity[2]
+                )
 
     # Backward pass
     backward[-1] = forward[-1]
@@ -21,7 +23,10 @@ def cpm(nodes, activities):
         slack[i] = backward[i] - forward[i]
 
     # Identify critical path
-    critical_path = [i + 1 for i in range(nodes) if slack[i] == 0]
+    critical_path = []
+    for i in range(nodes):
+        if slack[i] == 0:
+            critical_path.append(i + 1)
 
     print("Forward:", forward)
     print("Backward:", backward)
@@ -32,5 +37,10 @@ def cpm(nodes, activities):
 
 
 nodes = 7
-activities = [(1, 2, 11), (1, 3, 3), (1, 4, 10), (4, 5, 3), (3, 5, 1), (2, 6, 2), (5, 6, 1), (6, 7, 1)]
+# read from file
+activities = []
+with open("cpm_input.txt") as f:
+    for line in f:
+        activities.append(tuple(map(int, line.split())))
+print(activities)
 critical_path = cpm(nodes, activities)
