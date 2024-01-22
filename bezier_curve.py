@@ -1,3 +1,4 @@
+#from ahnaf
 import matplotlib.pyplot as plt
 
 def factorial(n):
