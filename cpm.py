@@ -1,4 +1,3 @@
-```python
 def cpm(nodes, activities):
     forward = [0] * nodes
     backward = [float("inf")] * nodes
@@ -45,4 +44,3 @@ with open("cpm_input.txt") as f:
         activities.append(tuple(map(int, line.split())))
 print(activities)
 critical_path = cpm(nodes, activities)
-```
