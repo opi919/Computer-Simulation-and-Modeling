@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 from statsmodels.tsa.arima.model import ARIMA
 
-data = pd.read_csv("usage.csv")
+data = pd.read_csv("shampoo.csv")
 data.columns = ["Month", "Sales"]
 data.set_index("Month", inplace=True)
 
