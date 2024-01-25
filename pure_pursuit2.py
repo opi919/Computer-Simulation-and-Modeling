@@ -1,4 +1,4 @@
-#from ahnaf
+# from ahnaf
 import matplotlib.pyplot as plt
 
 
@@ -27,6 +27,7 @@ def pure_pursuit(x_bomber, y_bomber, xf, yf, fighter_speed):
         distance = ((xf - x_bomber[time]) ** 2 + (yf - y_bomber[time]) ** 2) ** 0.5
         if distance < caught_distance:
             print(f"Target caught at {time} second")
+            plt.close()
             break
         if distance > escape_distance or time > len(x_bomber):
             print(f"Target escaped at {time} second")
